@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Route::get('peticion', 'acción');
+
 Route::get('/peticion', function () {
     return 'petición ejecutada';
 });
@@ -25,6 +27,14 @@ Route::get('/inicio', function(){
     return view('inicio');
 });
 
+Route::get('/estructuras', function (){
+    $nombre = 'marcos';
+    //pasar el dato $nombre a la vista
+    // como array asociativo
+    return view('estructuras', [ 'nombre'=>$nombre ] );
+});
 
-
+Route::get('/formulario', function(){
+    return view('formulario');
+});
 
