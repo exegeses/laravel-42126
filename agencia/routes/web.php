@@ -37,8 +37,8 @@ Route::get('/estructuras', function (){
 Route::get('/formulario', function() {
     return view('formulario');
 });
-Route::get('/proceso', function () {
-    $frase = $_GET['frase'];
+Route::post('/proceso', function () {
+    $frase = $_POST['frase'];
     return view('proceso', [ 'frase'=>$frase ]);
 });
 

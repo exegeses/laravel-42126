@@ -14,7 +14,8 @@
         <h1>Formulario de envio</h1>
 
         <div class="alert bg-light shadow-sm p-4">
-            <form action="/proceso" method="get">
+            <form action="/proceso" method="post">
+                @csrf
                 Frase: <br>
                 <input type="text" name="frase" class="form-control">
                 <br>
