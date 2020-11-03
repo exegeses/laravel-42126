@@ -49,3 +49,9 @@ Route::get('/portada', function (){
     return view('portada');
 });
 
+## datos desde BDD
+Route::get('/regiones', function (){
+    $regiones = \Illuminate\Support\Facades\DB::table('regiones')->get();
+    return view('portada', ['regiones'=>$regiones]);
+});
+
