@@ -44,5 +44,8 @@ Route::post('/proceso', function () {
     return view('proceso', [ 'frase'=>$frase ]);
 });
 
-
+## implementaciónde unaw plantilla blade
+Route::get('/portada', function (){
+    return view('portada');
+});
 
