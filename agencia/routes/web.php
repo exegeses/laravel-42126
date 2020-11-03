@@ -34,7 +34,11 @@ Route::get('/estructuras', function (){
     return view('estructuras', [ 'nombre'=>$nombre ] );
 });
 
-Route::get('/formulario', function(){
+Route::get('/formulario', function() {
     return view('formulario');
+});
+Route::get('/proceso', function () {
+    $frase = $_GET['frase'];
+    return view('proceso', [ 'frase'=>$frase ]);
 });
 
