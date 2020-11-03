@@ -27,6 +27,7 @@ Route::get('/inicio', function(){
     return view('inicio');
 });
 
+## enviando datos a la vista
 Route::get('/estructuras', function (){
     $nombre = 'marcos';
     //pasar el dato $nombre a la vista
@@ -34,6 +35,7 @@ Route::get('/estructuras', function (){
     return view('estructuras', [ 'nombre'=>$nombre ] );
 });
 
+## trabajando con un form
 Route::get('/formulario', function() {
     return view('formulario');
 });
@@ -41,4 +43,6 @@ Route::post('/proceso', function () {
     $frase = $_POST['frase'];
     return view('proceso', [ 'frase'=>$frase ]);
 });
+
+
 
