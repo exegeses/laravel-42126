@@ -50,8 +50,10 @@ Route::get('/portada', function (){
 });
 
 ## datos desde BDD
-Route::get('/regiones', function (){
-    $regiones = \Illuminate\Support\Facades\DB::table('regiones')->get();
-    return view('portada', ['regiones'=>$regiones]);
+Route::get('/regiones', function () {
+    $regiones = DB::table('regiones')->get();
+    return view('portada', [ 'regiones'=>$regiones ] );
 });
 
+###########################
+#### CRUD REGIONES 

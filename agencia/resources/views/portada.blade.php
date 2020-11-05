@@ -4,10 +4,14 @@
 
         <h1>Tema de la página</h1>
 
-        <ul>
-        @foreach( $regiones as $region )
-            <li>{{ $region->regNombre }}</li>
-        @endforeach
-        </ul>
+        @if( !isset($regiones) )
+            No se han encontrado regiones.
+        @else
+            <ul>
+            @foreach( $regiones as $region )
+                <li>{{ $region->regNombre }}</li>
+            @endforeach
+            </ul>
+        @endif
 
     @endsection
