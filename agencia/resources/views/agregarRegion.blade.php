@@ -15,7 +15,7 @@
                 <button class="btn btn-dark">
                     Agregar región
                 </button>
-                <a href="/adminRegiones" class="btn btn-outline-secondary">
+                <a href="/adminRegiones" class="btn btn-outline-secondary ml-3">
                     volver a panel
                 </a>
             </form>
