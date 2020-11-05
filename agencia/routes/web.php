@@ -65,8 +65,23 @@ Route::get('/regiones', function () {
  *  DB::delete();
  *
  * */
+/** ## métodos fluent Query Builder
+ *
+ *      ::table('nTable')->get();
+ *
+ *      ::table('nTable')->select('campo, campo2')->get();
+ *      ::table('nTable')->select('campo, campo2')
+ *                              ->where(condicion)->get();
+ *      ::table('nTable')->where(condicion)->get();
+ *
+ *      ::table('nTable')->insert([valores]);
+ */
+
 Route::get('/adminRegiones', function() {
     //traemos listado de regiones
-    $regiones = DB::select('SELECT regID, regNombre FROM regiones');
+    //$regiones = DB::select('SELECT regID, regNombre FROM regiones');
+    $regiones = DB::table('regiones')->get();
     return view('adminRegiones', [ 'regiones'=>$regiones ]);
 });
+
+
