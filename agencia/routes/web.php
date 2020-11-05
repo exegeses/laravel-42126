@@ -84,4 +84,6 @@ Route::get('/adminRegiones', function() {
     return view('adminRegiones', [ 'regiones'=>$regiones ]);
 });
 
-
+Route::get('/agregarRegion', function(){
+    return view('agregarRegion');
+});
