@@ -149,6 +149,7 @@ Route::get('/eliminarRegion/{regID}', function($regID){
 
 Route::post('/eliminarRegion', function () {
     $regID = $_POST['regID'];
+    $regNombre = $_POST['regNombre'];
     /*
         DB::delete(
                 'DELETE FROM  regiones
@@ -160,6 +161,6 @@ Route::post('/eliminarRegion', function () {
         ->where('regID',$regID)
         ->delete();
     return redirect('/adminRegiones')
-        ->with('mensaje', 'Región: eliminada correctamente.');
+        ->with('mensaje', 'Región: '.$regNombre.' eliminada correctamente.');
 
 });

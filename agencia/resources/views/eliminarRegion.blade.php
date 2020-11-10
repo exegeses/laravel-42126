@@ -8,6 +8,8 @@
             <form action="/eliminarRegion" method="post">
                 @csrf
                 Región: <span class="lead">{{ $region->regNombre }}</span>
+                <input type="hidden" name="regNombre"
+                       value="{{ $region->regNombre }}">
                 <input type="hidden" name="regID"
                        value="{{ $region->regID }}">
                 <button class="btn btn-danger btn-block my-2">
