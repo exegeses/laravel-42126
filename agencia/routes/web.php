@@ -139,3 +139,10 @@ Route::post('/modificarRegion', function () {
                 ->with('mensaje', 'Región: '.$regNombre,' modificada correctamente.');
 
 });
+
+Route::get('/eliminarRegion/{regID}', function($regID){
+    $region = DB::table('regiones')
+                    ->where('regID', $regID)
+                    ->first();
+    return view('eliminarRegion', [ 'region'=>$region ]);
+});
