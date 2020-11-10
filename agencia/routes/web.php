@@ -99,5 +99,43 @@ Route::post('/agregarRegion', function (){
     DB::table('regiones')->insert(
                                 [ 'regNombre'=>$regNombre ]
                             );
-    return redirect('/adminRegiones');
+    return redirect('/adminRegiones')
+            ->with('mensaje', 'Región: '.$regNombre.' agregada correctamente.');
+});
+
+Route::get('/modificarRegion/{regID}', function ($regID) {
+    // obtener datos de la región según $regID
+    /*
+    $region = DB::select('SELECT regID, regNombre
+                            FROM regiones
+                            WHERE regID = ?', [$regID]);
+
+    $region = DB::select('SELECT regID, regNombre
+                            FROM regiones
+                            WHERE regID = :id', [ ':id'=>$regID] );
+    */
+    $region = DB::table('regiones')
+                    ->where('regID', $regID)
+                    ->first();
+    // mostrar el form con datos de región
+    return view('modificarRegion', [ 'region'=>$region ]);
+});
+
+Route::post('/modificarRegion', function () {
+    $regNombre = $_POST['regNombre'];
+    $regID = $_POST['regID'];
+    /*
+    DB::update( 'UPDATE regiones
+                   SET regNombre = :regNombre
+                   WHERE regID = :regID',
+                    [ ':regNombre'=>$regNombre, ':regID'=>$regID ]
+        );
+    */
+    DB::table('regiones')
+            ->where('regID', $regID)
+            ->update( [ 'regNombre'=>$regNombre ] );
+
+    return redirect('/adminRegiones')
+                ->with('mensaje', 'Región: '.$regNombre,' modificada correctamente.');
+
 });
