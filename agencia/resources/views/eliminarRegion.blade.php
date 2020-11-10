@@ -6,7 +6,8 @@
 
         <div class="alert bg-light border-danger col-6 mx-auto p-4">
             <form action="/eliminarRegion" method="post">
-                Región: {{ $region->regNombre }}
+                @csrf
+                Región: <span class="lead">{{ $region->regNombre }}</span>
                 <input type="hidden" name="regID"
                        value="{{ $region->regID }}">
                 <button class="btn btn-danger btn-block my-2">
@@ -17,6 +18,14 @@
                 </a>
             </form>
         </div>
+
+        <script>
+            Swal.fire(
+                'Advertencia!',
+                'Confirmar baja eliminará la región seleccionada.',
+                'warning'
+            )
+        </script>
 
     @endsection
 
