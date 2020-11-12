@@ -4,7 +4,7 @@
 
         <h1>Alta de una nueva región</h1>
 
-        <div class="bg-light shadow-sm col-8 mx-auto p-4">
+        <div class="alert bg-light border border-white shadow col-8 mx-auto rounded p-4">
             <form action="/agregarRegion" method="post">
                 @csrf
                 <label for="regNombre">
