@@ -217,3 +217,20 @@ Route::post('/agregarDestino', function () {
     return redirect('/adminDestinos')
             ->with('mensaje', 'Destino: '.$destNombre.' agregado correctamente.');
 });
+
+Route::get('/modificarDestino/{destID}', function ($destID) {
+    //obtenemos datos del destino y de las regiones
+    $destino = DB::table('destinos as d')
+                    ->join('regiones as r','d.regID','=','r.regID')
+                    ->where('destID',$destID)
+                    ->first();
+    $regiones = DB::table('regiones')->get();
+
+    //retornamos vista del form pasando datos
+    return view('modificarDestino',
+                        [
+                            'destino'=>$destino,
+                            'regiones'=>$regiones
+                        ]
+            );
+});

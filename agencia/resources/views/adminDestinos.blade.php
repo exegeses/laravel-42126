@@ -28,12 +28,12 @@
                 <td> {{ $destino->regNombre }} </td>
                 <td> ${{ number_format($destino->destPrecio, 2, ',', '.') }} </td>
                 <td>
-                    <a href="/formModificarDestino/id" class="btn btn-outline-secondary">
+                    <a href="/modificarDestino/{{ $destino->destID }}" class="btn btn-outline-secondary">
                         Modificar
                     </a>
                 </td>
                 <td>
-                    <a href="/formEliminarDestino/id" class="btn btn-outline-secondary">
+                    <a href="/eliminarDestino/id" class="btn btn-outline-secondary">
                         Eliminar
                     </a>
                 </td>
