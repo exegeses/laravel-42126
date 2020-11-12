@@ -201,7 +201,7 @@ Route::post('/agregarDestino', function () {
     $regID = $_POST['regID'];
     $destAsientos = $_POST['destAsientos'];
     $destDisponibles = $_POST['destDisponibles'];
-    $destActivo = $_POST['destActivo'];
+    //$destActivo = $_POST['destActivo']; default = 1
 
     //insertamos datos en tabla
     DB::table('destinos')
@@ -211,8 +211,7 @@ Route::post('/agregarDestino', function () {
                  'destPrecio'=>$destPrecio,
                  'regID'=>$regID,
                  'destAsientos'=>$destAsientos,
-                 'destDisponibles'=>$destDisponibles,
-                 'destActivo'=>$destActivo
+                 'destDisponibles'=>$destDisponibles
                 ]
             );
     return redirect('/adminDestinos')
