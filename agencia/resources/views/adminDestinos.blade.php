@@ -26,7 +26,7 @@
             <tr>
                 <td> {{ $destino->destNombre }} </td>
                 <td> {{ $destino->regNombre }} </td>
-                <td> ${{ $destino->destPrecio }} </td>
+                <td> ${{ number_format($destino->destPrecio, 2, ',', '.') }} </td>
                 <td>
                     <a href="/formModificarDestino/id" class="btn btn-outline-secondary">
                         Modificar
