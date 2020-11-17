@@ -14,7 +14,7 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Región</th>
+                    <th>Marca</th>
                     <th colspan="2">
                         <a href="/agregarMarca" class="btn btn-outline-secondary">
                             Agregar
@@ -23,10 +23,10 @@
                 </tr>
             </thead>
             <tbody>
-
+            @foreach( $marcas as $marca )
                 <tr>
-                    <td>#</td>
-                    <td>marca</td>
+                    <td>{{ $marca->idMarca }}</td>
+                    <td>{{ $marca->mkNombre }}</td>
                     <td>
                         <a href="/modificarMarca" class="btn btn-outline-secondary">
                             Modificar
@@ -38,8 +38,7 @@
                         </a>
                     </td>
                 </tr>
-
-
+            @endforeach
             </tbody>
         </table>
 
