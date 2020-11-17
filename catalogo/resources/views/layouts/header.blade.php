@@ -18,14 +18,14 @@
     <header class="bg-dark mb-3 shadow-md">
 
         <nav class="container navbar navbar-expand-lg navbar-dark">
-            <i class="fas fa-globe-americas fa-2x mr-2"></i>
+            <i class="fab fa-meetup fa-2x mr-2"></i>
             <a class="navbar-brand" href="#">{{ env('APP_NAME') }}</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav mr-auto">
-                    <a class="nav-item nav-link" href="#">Inicio</a>
+                <div class="navbar-nav ml-auto">
+                    <a class="nav-item nav-link ml-4" href="#">Inicio</a>
                     <a class="nav-item nav-link" href="/adminRegiones">Regiones</a>
                     <a class="nav-item nav-link" href="/adminDestinos">Destinos</a>
                 </div>
