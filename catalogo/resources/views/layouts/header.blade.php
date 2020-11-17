@@ -15,7 +15,7 @@
 </head>
 <body>
 
-    <header class="bg-dark mb-3 shadow-md">
+    <header class="bg-dark mb-3 shadow-sm border-bottom border-light">
 
         <nav class="container navbar navbar-expand-lg navbar-dark">
             <i class="fab fa-meetup fa-2x mr-2"></i>
