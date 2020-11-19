@@ -6,7 +6,7 @@
 
         <div class="alert bg-light border border-white shadow round col-8 mx-auto p-4">
 
-            <form action="agregarMarca.php" method="post">
+            <form action="agregarMarca.blade.php" method="post">
                 <div class="form-group">
                     <label for="mkNombre">Nombre de la marca</label>
                     <input type="text" name="mkNombre"
