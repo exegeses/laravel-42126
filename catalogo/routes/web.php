@@ -19,14 +19,15 @@ Route::get('/', function () {
 
 ###########################
 ##### CRUD de marcas
-
 use App\Http\Controllers\MarcaController;
 Route::get('/adminMarcas', [ MarcaController::class, 'index' ]);
 
 ###########################
 ##### CRUD de categorias
-
 use App\Http\Controllers\CategoriaController;
 Route::get('/adminCategorias', [ CategoriaController::class, 'index' ]);
 
-
+###########################
+##### CRUD de productos
+use App\Http\Controllers\ProductoController;
+Route::get('/adminProductos', [ ProductoController::class, 'index' ]);
