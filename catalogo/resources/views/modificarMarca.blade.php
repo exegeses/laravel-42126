@@ -7,12 +7,16 @@
         <div class="alert bg-light border border-white shadow round col-8 mx-auto p-4">
 
             <form action="/modificarMarca" method="post">
+                @method('put')
                 @csrf
                 <div class="form-group">
                     <label for="mkNombre">Nombre de la marca</label>
                     <input type="text" name="mkNombre"
+                           value="{{ $marca->mkNombre }}"
                            class="form-control" id="mkNombre">
                 </div>
+                <input type="hidden" name="idMarca"
+                       value="{{ $marca->idMarca }}">
                 <button class="btn btn-dark mr-3">Modificar marca</button>
                 <a href="/adminMarcas" class="btn btn-outline-secondary">
                     Volver a panel

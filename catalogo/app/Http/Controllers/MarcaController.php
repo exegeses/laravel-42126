@@ -28,17 +28,8 @@ class MarcaController extends Controller
         return view('agregarMarca');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function validar(Request $request)
     {
-        //capturamos datos enviados por el form
-        //$mkNombre = $_POST['mkNombre'];
-        $mkNombre = $request->input('mkNombre');
         //validamos con método validate
         $request->validate(
             [
@@ -50,6 +41,23 @@ class MarcaController extends Controller
                 'mkNombre.max'=>'El campo Nombre de tener 50 caractéres como máximo.'
             ]
         );
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //capturamos datos enviados por el form
+        //$mkNombre = $_POST['mkNombre'];
+        $mkNombre = $request->input('mkNombre');
+
+        //validación
+        $this->validar($request);
+
         //guardamos en BDD
         $Marca = new Marca;
         $Marca->mkNombre = $mkNombre;
@@ -81,7 +89,7 @@ class MarcaController extends Controller
         // obtenemos datos de la marca por su id
         $Marca = Marca::find($idMarca);
         // retornamos la vista del form con los datos de la marca
-        return 'llegamos a ver el form por el id '.$idMarca.'?';
+        return view('modificarMarca', [ 'marca'=>$Marca ]);
     }
 
     /**
@@ -91,9 +99,21 @@ class MarcaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        //capturamos datos enviados por el form
+        $mkNombre = $request->input('mkNombre');
+        $idMarca = $request->input('idMarca');
+        //validamos con el método validate
+        $this->validar($request);
+        //obtenemos datos de la marca por su id
+        $Marca = Marca::find($idMarca);
+        //modificamos
+        $Marca->mkNombre = $mkNombre;
+        $Marca->save();
+        //redirigimos a una petición con mensaje
+        return redirect('/adminMarcas')
+                        ->with('mensaje', 'Marca: '.$mkNombre.' modificada correctmente');
     }
 
     /**
