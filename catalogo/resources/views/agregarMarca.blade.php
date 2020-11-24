@@ -14,7 +14,7 @@
                            class="form-control" id="mkNombre">
                 </div>
                 <button class="btn btn-dark mr-3">Agregar marca</button>
-                <a href="/adminMarcas.php" class="btn btn-outline-secondary">
+                <a href="/adminMarcas" class="btn btn-outline-secondary">
                     Volver a panel
                 </a>
             </form>
