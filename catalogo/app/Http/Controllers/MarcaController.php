@@ -76,9 +76,12 @@ class MarcaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($idMarca)
     {
-        //
+        // obtenemos datos de la marca por su id
+        $Marca = Marca::find($idMarca);
+        // retornamos la vista del form con los datos de la marca
+        return 'llegamos a ver el form por el id '.$idMarca.'?';
     }
 
     /**
