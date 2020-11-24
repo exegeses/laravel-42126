@@ -25,7 +25,7 @@ class MarcaController extends Controller
      */
     public function create()
     {
-        //
+        return view('agregarMarca');
     }
 
     /**
@@ -36,7 +36,27 @@ class MarcaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //capturamos datos enviados por el form
+        //$mkNombre = $_POST['mkNombre'];
+        $mkNombre = $request->input('mkNombre');
+        //validamos con método validate
+        $request->validate(
+            [
+                'mkNombre'=>'required|min:2|max:50'
+            ],
+            [
+                'mkNombre.required'=>'El campo Nombre es obligatorio.',
+                'mkNombre.min'=>'El campo Nombre de tener al menos 2 caractéres.',
+                'mkNombre.max'=>'El campo Nombre de tener 50 caractéres como máximo.'
+            ]
+        );
+        //guardamos en BDD
+        $Marca = new Marca;
+        $Marca->mkNombre = $mkNombre;
+        $Marca->save();
+        //retornamos con mensaje de ok
+        return redirect('/adminMarcas')
+                    ->with('mensaje', 'Marca: '.$mkNombre.' agregada correctamente.');
     }
 
     /**

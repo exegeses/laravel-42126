@@ -13,7 +13,7 @@ class TestController extends Controller
     }
 
     //show
-    public function vermarcaPorID()
+    public function verMarcaPorID()
     {
 
     }
@@ -24,4 +24,8 @@ class TestController extends Controller
 
     }
     //edit & update
+    public function modificarMarca()
+    {
+
+    }
 }
