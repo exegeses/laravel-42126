@@ -36,4 +36,5 @@ Route::get('/adminCategorias', [ CategoriaController::class, 'index' ]);
 ##### CRUD de productos
 use App\Http\Controllers\ProductoController;
 Route::get('/adminProductos', [ ProductoController::class, 'index' ]);
+Route::get('/agregarProducto', [ ProductoController::class, 'create' ]);
 
