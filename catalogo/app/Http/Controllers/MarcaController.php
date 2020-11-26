@@ -118,6 +118,7 @@ class MarcaController extends Controller
 
     /**
      * Método para confirmar la marca que vamos a eliminar
+     * @param  int  $idMarca
      */
     public function confirmar($idMarca)
     {
