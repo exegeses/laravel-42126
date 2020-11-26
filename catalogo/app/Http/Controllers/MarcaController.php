@@ -14,7 +14,7 @@ class MarcaController extends Controller
      */
     public function index()
     {
-        $marcas = Marca::simplePaginate(7);
+        $marcas = Marca::paginate(7);
         return view('adminMarcas', [ 'marcas'=>$marcas ]);
     }
 
@@ -117,13 +117,31 @@ class MarcaController extends Controller
     }
 
     /**
+     * Método para confirmar la marca que vamos a eliminar
+     */
+    public function confirmar($idMarca)
+    {
+        //obtenemos datos de la marca por su id
+        $Marca = Marca::find($idMarca);
+
+        //retornamos vista para confirmar la baja
+        return view('eliminarMarca', [ 'marca'=>$Marca ]);
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $idMarca = $request->idMarca;
+        $mkNombre = $request->mkNombre;
+        //elimina
+        Marca::destroy($idMarca);
+        //redirección con mensaje
+        return redirect('/adminMarcas')
+            ->with('mensaje', 'Marca: '.$mkNombre.' eliminada correctmente');
     }
 }

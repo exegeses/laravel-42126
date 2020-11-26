@@ -18,7 +18,7 @@
     <header class="bg-dark mb-3 shadow-sm border-bottom border-light">
 
         <nav class="container navbar navbar-expand-lg navbar-dark">
-            <i class="fab fa-meetup fa-2x mr-2"></i>
+            <i class="fab fa-meetup fa-2x mr-2 text-white"></i>
             <a class="navbar-brand" href="#">{{ env('APP_NAME') }}</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
