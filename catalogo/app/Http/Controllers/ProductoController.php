@@ -73,6 +73,23 @@ class ProductoController extends Controller
         );
     }
 
+    private function subirImagen(Request $request)
+    {
+        //si no enviaron imagen
+        $prdImagen = 'noDisponible.jpg';
+        //si enviaron imagen
+        if( $request->file('prdImagen') ){
+            //renombrar
+                # time().extension
+            $prdImagen = time().'.'.$request->file('prdImagen')->clientExtension();
+
+            //subimos el archivo
+            $request->file('prdImagen')
+                            ->move( public_path('productos/'), $prdImagen );
+        }
+        return $prdImagen;
+
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -83,6 +100,9 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
         //validación
+        $this->validar($request);
+
+        //subir imagen
 
         //instancias y guardar
 
