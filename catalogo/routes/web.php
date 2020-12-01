@@ -39,4 +39,5 @@ Route::get('/adminProductos', [ ProductoController::class, 'index' ]);
 Route::get('/agregarProducto', [ ProductoController::class, 'create' ]);
 Route::post('/agregarProducto', [ ProductoController::class, 'store' ]);
 Route::get('/modificarProducto/{idProducto}', [ProductoController::class, 'edit']);
-Route::put('/modificarProducto', [ ProductoController::class, 'update']);
+Route::put('/modificarProducto', [ ProductoController::class, 'update' ]);
+Route::get('/eliminarProducto/{idProducto}', [ ProductoController::class, 'confirmar' ]);

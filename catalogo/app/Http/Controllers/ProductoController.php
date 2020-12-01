@@ -192,6 +192,15 @@ class ProductoController extends Controller
                     ->with('mensaje', 'Producto: '.$Producto->prdNombre.' modificado correctamente.');
     }
 
+    public function confirmar($idProducto)
+    {
+        //obtenemos datos del producto
+        $Producto = Producto::with('relMarca', 'relCategoria')
+                                ->find($idProducto);
+        //retornamos vista con datos
+        return view('eliminarProducto', [ 'producto'=>$Producto ]);
+    }
+
     /**
      * Remove the specified resource from storage.
      *
