@@ -20,7 +20,7 @@
                     <div class="input-group-prepend">
                         <div class="input-group-text">$</div>
                     </div>
-                    <input type="number" name="prdPrecio"
+                    <input type="number" name="prdPrecio" step="0.01"
                            value="{{ $producto->prdPrecio }}"
                            class="form-control">
                 </div>
