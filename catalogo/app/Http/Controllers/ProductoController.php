@@ -75,8 +75,14 @@ class ProductoController extends Controller
 
     private function subirImagen(Request $request)
     {
-        //si no enviaron imagen
+        //si no enviaron imagen en agregar
         $prdImagen = 'noDisponible.jpg';
+
+        //si no enviaron imagen en modificar
+        if( $request->has('imagenActual') ){
+            $prdImagen = $request->input('imagenActual');
+        }
+
         //si enviaron imagen
         if( $request->file('prdImagen') ){
             //renombrar
@@ -163,9 +169,27 @@ class ProductoController extends Controller
      * @param  \App\Models\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Producto $producto)
+    public function update(Request $request)
     {
-        //
+        //validación
+        $this->validar($request);
+        //subir imagen *
+        $prdImagen = $this->subirImagen($request);
+        // ubicar producto
+        $Producto = Producto::find($request->idProducto);
+            //asignamos atributos
+        $Producto->prdNombre = $request->prdNombre;
+        $Producto->prdPrecio = $request->prdPrecio;
+        $Producto->idMarca = $request->idMarca;
+        $Producto->idCategoria = $request->idCategoria;
+        $Producto->prdPresentacion = $request->prdPresentacion;
+        $Producto->prdStock = $request->prdStock;
+        $Producto->prdImagen = $prdImagen;
+            //guardamos
+        $Producto->save();
+        // redirigimos enviando mensaje
+        return redirect('/adminProductos')
+                    ->with('mensaje', 'Producto: '.$Producto->prdNombre.' modificado correctamente.');
     }
 
     /**

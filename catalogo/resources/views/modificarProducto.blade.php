@@ -8,6 +8,7 @@
         <div class="alert bg-light border border-white shadow round col-8 mx-auto p-4">
 
             <form action="/modificarProducto" method="post" enctype="multipart/form-data">
+            @method('put')
             @csrf
                 Nombre: <br>
                 <input type="text" name="prdNombre"
@@ -58,6 +59,8 @@
                     <label class="custom-file-label" for="customFileLang" data-browse="Buscar en disco">Seleccionar Archivo: </label>
                 </div>
 
+                <input type="hidden" name="imagenActual"
+                       value="{{ $producto->prdImagen }}">
                 <input type="hidden" name="idProducto"
                        value="{{ $producto->idProducto }}">
                 <br>
